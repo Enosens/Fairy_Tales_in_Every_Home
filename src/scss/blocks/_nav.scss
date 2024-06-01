@@ -1,0 +1,461 @@
+.nav{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #555;
+    width: 100%;
+}
+
+
+.nav__top{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+/* .nav__top a:hover{
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    transition: .3s all;
+} */
+
+.nav__top__address{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav__top__address__img{
+    width: fit-content;
+}
+
+.nav__top__address__info{
+    color: #555;
+}
+
+
+
+
+.nav__top--btn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav__top--btn a{
+    display: inline-block;
+    padding: 2px;
+    position: relative;
+    overflow: hidden;
+    color: #555;
+
+    &::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        width: 100%;
+        height: 1px;
+        background-color: #555;
+        transform: translate(-105%);
+        transition: .3s;
+    }
+
+    &:hover::before{
+        transform: translate(0%);  
+    }
+}
+
+.nav__top--btn svg{
+    width: 20px;
+    height: 20px;
+}
+
+.nav__top--btn svg:hover{
+    fill: red;
+    transition: .3s;
+    cursor: pointer;
+}
+
+
+.nav__top--btn__number{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+
+.nav__top--btn__social{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #555;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.search input{
+    color: #555;
+    font-size: 0.8rem;
+    outline: none;
+    border: none;
+}
+
+
+.user_exit{
+    border: none;
+    background: none;
+}
+
+.nav__top--btn__img{
+    display: flex;
+    gap: 20px;
+}
+
+.nav__top--btn__img>img{
+    cursor: pointer;
+}
+
+.nav__top--btn__img__basket{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nav__top--btn__img__basket__block,.nav__top--btn__img__star__block{
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 400px;
+    max-height: 530px;
+    background-color: #fff;
+    z-index: 5;
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        width: 0px;
+    }
+}
+
+
+
+.nav__top--btn__img__basket__block__top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.nav__top--btn__img__basket__block__top__title{
+    color: #000;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.nav__top--btn__img__basket__block__top__sybtitle{
+    color: #000;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.basket--info,.star--info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    text-transform: uppercase;
+    width: 100%;
+    height: 50px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    font-weight: 700;
+}
+
+.basket__element,.star__element{
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0px;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.star__element:last-child{
+    border: none;
+}
+
+
+.basket__element>svg,.star__element>svg{
+    display: block;
+    fill: #000;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 15px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.basket__element span,.star__element span{
+    color: #000;
+}
+
+.basket__element img,.star__element img{
+    width: 15%;
+}
+
+.basket__element__info,.star__element__info{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    gap: 5px;
+}
+
+.basket__element__info__number__block,.star__element__info__number__block{
+    display: flex;
+    gap: 2px;
+}
+
+.basket__element__info__money,.star__element__info__money{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.basket__element__info__money__click,.star__element__info__money__click{
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.basket__element__info__money__click span,.star__element__info__money__click span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 20px;
+}
+
+.basket__element__info__money__click__element,.star__element__info__money__click__element{
+    cursor: pointer;
+}
+
+.basket__element__info__money__click__element:hover,.star__element__info__money__click__element:hover{
+    background-color: #555555b7;
+    transition: .3s;
+}
+
+.basket__element__info__money__click__number,.star__element__info__money__click__number{
+    border-left-style: solid;
+    border-right-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.basket__element__info__money__block,.star__element__info__money__block{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.star__element__info__money__block svg:hover{
+    cursor: pointer;
+    fill: rgb(255, 0, 0);
+}
+
+.basket-delivery,.star-delivery{
+    padding: 10px 0px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.basket-delivery>span,.star-delivery>span{
+    color: #000;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.basket-delivery--info,.star-delivery--info{
+    color: green;
+}
+
+.basket-form,.star-form{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    padding: 10px 0px;
+}
+
+.basket-form span ,.star-form span{
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+}
+
+.basket-form input, .basket-form::placeholder,.star-form input, .star-form::placeholder{
+    font-size: 13px;
+    font-weight: 700;
+    width: fit-content;
+    border-width: 1px;
+    border-color: #000;
+    padding: 5px;
+    outline: inherit;
+    color: #000;
+    border-radius: 5px;
+}
+
+::placeholder{
+    color: inherit;
+}
+
+
+.basket-form button,.star-form button{
+    width: fit-content;
+    padding: 5px 20px;
+    outline: initial;
+    background: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    background-color: rgb(0, 183, 255);
+    color: #000;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.nav__bottom{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px;
+    gap: 50px;
+}
+
+.nav__bottom__logo{
+    gap: 5px;
+    height: 75px;
+    display: flex;
+    width: 250px;
+    align-items: center;
+}
+
+.nav__bottom__logo img{
+    height: 100%;
+    border-radius: 100%;
+}
+
+.nav__bottom__logo span{
+    color: #555555b9;
+}
+
+
+.nav__bottom__btn{
+    display: flex;
+    gap: 30px;
+}
+
+.nav__bottom__btn__element{
+    overflow: hidden;
+    position: relative;
+    display: block;
+    color: #000;
+    font-size: 17px;
+    opacity: 0.8;
+    transition: .3s;
+    height: 20px;
+
+    &::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 1px;
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+        transform: translate(-100%);
+        transition: .3s;
+    }
+}
+
+.nav__bottom__btn__element:hover::before{
+    transform: translate(0%);
+}
+
+
+
+
+@media (max-width: 1000px){
+    .nav__bottom__btn{
+        gap: 15px
+    }
+}
+
+@media (max-width: 900px){
+    .nav__bottom{
+        gap: 0px;
+        justify-content: center;
+    }
+    .nav__top{
+        justify-content: center;
+    }
+    .nav__top__address{
+        display: none;
+    }
+    .nav__bottom__logo{
+        display: none;
+    }
+}
+
+@media (max-width: 600px){
+    .nav__top--btn__number{
+        display: none;
+    }
+    .nav__top--btn__img{
+        display: none;
+    }
+    .nav__bottom{
+        display: none;
+    }
+}
+
+
+@media (max-width: 350px){
+    .nav__top--btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .search {
+        display: none;
+    }
+}
+
+
+

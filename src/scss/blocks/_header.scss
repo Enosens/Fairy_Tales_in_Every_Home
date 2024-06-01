@@ -1,0 +1,157 @@
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.header__nav{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header__sybtitle{
+    font-size: 0.8rem;
+}
+
+.header__btn{
+    color: #000;
+}
+
+
+
+.header__title{
+    margin: 30px 0px;
+    font-size: 1.8rem;
+    color: #000;
+}
+
+.slider{
+    width: 100%;
+    height: 434px;
+    position: relative;
+}
+
+.slider img{
+    width: 100%;
+    height: 100%;
+}
+
+.slider__inner{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.slider__inner__content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #00000085;
+    align-items: center;
+}
+
+.slider__inner__content span{
+    font-size: 60px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.info-website{
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    margin: 50px 0px;
+    flex-wrap: wrap;
+}
+
+.info-website__block{
+    display: flex;
+    width: 25%;
+    padding-right: 50px;
+    position: relative;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-website__block img, .info-website__block svg{
+    max-width: 50px;
+    opacity: 0.8;
+    transform: scaleX(-1);
+}
+
+
+
+@media (max-width:1000px){
+    .info-website__block{
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width:900px){
+    .slider{
+        height: 400px;
+    }
+    .slider__inner__content span{
+        font-size: 45px;
+    }
+}
+
+@media (max-width:750px){
+    .slider{
+        height: 300px;
+    }
+    .slider__inner__content span{
+        font-size: 35px;
+    }
+}
+
+@media (max-width:650px){
+    .slider{
+        height: 250px;
+    }
+    .slider__inner__content span{
+        font-size: 30px;
+    }
+    .info-website__block{
+        padding-right: 5px;
+    }
+}
+
+@media (max-width:500px){
+    .slider{
+        height: 200px;
+    }
+    .slider__inner__content span{
+        font-size: 25px;
+    }
+    .info-website{
+        margin: 25px 0px;
+    }
+    .info-website span{
+        font-size: 13px;
+    }
+}
+
+@media (max-width:400px){
+    .slider{
+        height: 150px;
+    }
+    .slider__inner__content span{
+        font-size: 20px;
+    }
+    .info-website__block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 300px){
+    .slider__inner__content span {
+        font-size: 15px;
+    }
+}

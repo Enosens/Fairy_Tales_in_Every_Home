@@ -1,0 +1,177 @@
+<nav class="nav">
+    <div class="nav__top">
+        <div class="nav__top__address">
+            <img class="nav__top__address__img" src="./img/header/map-marker.svg" alt="" />
+            <address class="nav__top__address__info">
+                г. Елец, п.Солидарность, ул.Новоселов, д. 29
+            </address>
+        </div>
+
+        <div class="nav__top--btn">
+            <div class="nav__top--btn__number">
+                <img src="./img/header/phone.svg" alt="" />
+                <a class="nav__top--btn__number__text">8-920-241-84-07</a>
+            </div>
+
+            <form class="nav__top--btn__social">
+                <img src="./img/header/user.svg" alt="" />
+                <a class="nav__top--btn__social__text" id="kabinet" href="#" data-welcome="enter">Вход</a>
+            </form>
+
+            <div class="search">
+                <input type="text" placeholder="Найти на сайте" />
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="#6B6B6B" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.43072 0.0233765C9.96149 0.0233765 12.838 2.89992 12.838 6.43069C12.838 7.94821 12.2917 9.33556 11.4048 10.4356L17.3704 16.3991L16.3991 17.3703L10.435 11.4048C9.33627 12.2917 7.94824 12.838 6.43072 12.838C2.89995 12.838 0.0234089 9.96146 0.0234089 6.43069C0.0234089 2.89992 2.89995 0.0233765 6.43072 0.0233765ZM6.43072 1.37228C3.62904 1.37228 1.37232 3.62901 1.37232 6.43069C1.37232 9.23237 3.62904 11.4891 6.43072 11.4891C9.2324 11.4891 11.4891 9.23237 11.4891 6.43069C11.4891 3.62901 9.2324 1.37228 6.43072 1.37228Z" />
+                </svg>
+            </div>
+
+            <div class="nav__top--btn__img">
+                <div class="nav__top--btn__img__basket" id="display">
+                    <svg data-basket="star__on" width="22" height="23" viewBox="0 0 22 23" fill="#6B6B6B"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path data-basket="star__on"
+                            d="M10.9563 0.572815L7.35921 7.76699L0.165039 8.66626L5.11703 14.2058L3.76213 22.1553L10.9563 18.5583L18.1505 22.1553L16.8076 14.2058L21.7476 8.66626L14.5534 7.76699L10.9563 0.572815ZM10.9563 3.25864L13.762 8.88209L19.3375 9.57752L15.5246 13.8461L16.5678 20.0211L10.9563 17.2153L5.34484 20.0211L6.388 13.8461L2.57509 9.57752L8.15057 8.88209L10.9563 3.25864Z" />
+                    </svg>
+                    <div class="nav__top--btn__img__star__block" id="displayon1">
+                        <div class="nav__top--btn__img__basket__block__top">
+                            <span class="nav__top--btn__img__basket__block__top__title">Избранные товары</span>
+                            <span class="nav__top--btn__img__basket__block__top__sybtitle"
+                                data-basket="star__off">Закрыть</span>
+                        </div>
+                        <div class="star--info">Нет избранных товаров</div>
+                        <div class="star-cart"></div>
+                    </div>
+                </div>
+
+                <div class="nav__top--btn__img__basket" id="display1">
+                    <svg data-basket="basket__on" width="21" height="20" viewBox="0 0 21 20" fill="#6B6B6B"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path data-basket="basket__on"
+                            d="M17.799 16.0206H4.30429C4.12027 16.0206 3.93625 15.8979 3.81357 15.7752C3.69089 15.6525 3.69089 15.4072 3.75223 15.2232L4.91768 12.2789L3.75223 1.29903H0.010498V0.0722351H4.30429C4.61098 0.0722351 4.85634 0.317594 4.91768 0.624293L6.14448 12.2789C6.14448 12.4015 6.14448 12.4629 6.08314 12.5856L5.22438 14.7938H18.4124L17.799 16.0206Z" />
+                        <path data-basket="basket__on"
+                            d="M5.6538 12.9536L5.40844 11.7268L19.6393 8.78251V3.75264H4.91772V2.52585H20.2527C20.6207 2.52585 20.8661 2.77121 20.8661 3.13925V9.27323C20.8661 9.57993 20.6821 9.82529 20.3754 9.88663L5.6538 12.9536Z" />
+                        <path data-basket="basket__on"
+                            d="M18.4126 19.701C17.0631 19.701 15.959 18.5969 15.959 17.2474C15.959 15.8979 17.0631 14.7938 18.4126 14.7938C19.7621 14.7938 20.8662 15.8979 20.8662 17.2474C20.8662 18.5969 19.7621 19.701 18.4126 19.701ZM18.4126 16.0206C17.7378 16.0206 17.1858 16.5726 17.1858 17.2474C17.1858 17.9221 17.7378 18.4742 18.4126 18.4742C19.0873 18.4742 19.6394 17.9221 19.6394 17.2474C19.6394 16.5726 19.0873 16.0206 18.4126 16.0206Z" />
+                        <path data-basket="basket__on"
+                            d="M3.6909 19.701C2.34142 19.701 1.2373 18.5969 1.2373 17.2474C1.2373 15.8979 2.34142 14.7938 3.6909 14.7938C5.04037 14.7938 6.14449 15.8979 6.14449 17.2474C6.14449 18.5969 5.04037 19.701 3.6909 19.701ZM3.6909 16.0206C3.01616 16.0206 2.4641 16.5726 2.4641 17.2474C2.4641 17.9221 3.01616 18.4742 3.6909 18.4742C4.36563 18.4742 4.91769 17.9221 4.91769 17.2474C4.91769 16.5726 4.36563 16.0206 3.6909 16.0206Z" />
+                    </svg>
+                    <div class="nav__top--btn__img__basket__block" id="displayon1">
+                        <div class="nav__top--btn__img__basket__block__top">
+                            <span class="nav__top--btn__img__basket__block__top__title">Ваша корзина</span>
+                            <span class="nav__top--btn__img__basket__block__top__sybtitle"
+                                data-basket="basket__off">Закрыть</span>
+                        </div>
+                        <div class="basket--info">корзина пуста</div>
+                        <div class="basket-cart"></div>
+                        <div class="basket-delivery">
+                            <span>Доставка:
+                                <span class="basket-delivery--info">бесплатно</span></span>
+                            <span>Итого: <span class="delivery__price">0</span><span> руб.</span></span>
+                        </div>
+                        <div class="basket-form">
+                            <span>Оформить заказ</span>
+                            <input type="text" placeholder="Ваш номер телефона" />
+                            <button>Заказать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="burger" data-burger="burger">
+                <div class="burger-element" data-burger="burger"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav__bottom">
+        <div class="nav__bottom__logo">
+            <img src="./img/logo/logo2.jpg" alt="" />
+            <span>Интернет магазин новогодних игрушек и украшений для елки</span>
+        </div>
+
+        <div class="nav__bottom__btn">
+            <a class="nav__bottom__btn__element" href="./index.html">Главная</a>
+            <a class="nav__bottom__btn__element" href="./catalog.html">Каталог</a>
+            <a class="nav__bottom__btn__element" href="./sales.html">Акции</a>
+            <a class="nav__bottom__btn__element" href="./infocompany.html">О компании</a>
+            <a class="nav__bottom__btn__element" href="./delivery.html">Доставка и оплата</a>
+            <a class="nav__bottom__btn__element" href="./contacts.html">Контакты</a>
+        </div>
+    </div>
+</nav>
+
+<form class="burger-form">
+    <div class="burger__block">
+        <div class="burger__logo">
+            <div class="burger__phone">+7-920-241-84-07</div>
+            <svg data-off="burger" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490"
+                style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                <polygon data-off="burger"
+                    points="11.387,490 245,255.832 478.613,490 489.439,479.174 255.809,244.996 489.439,10.811 478.613,0 245,234.161 11.387,0 0.561,10.811 234.191,244.996 0.561,479.174 ">
+                </polygon>
+            </svg>
+            <img class="burger__img" src="./img/logo/logo2.jpg" alt="" />
+            <span class="burger__logo__text">Интернет магазин новогодних игрушек и украшений для елки</span>
+        </div>
+
+        <div class="burger__search">
+            <input type="text" placeholder="Найти на сайте" />
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="#6B6B6B" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M6.43072 0.0233765C9.96149 0.0233765 12.838 2.89992 12.838 6.43069C12.838 7.94821 12.2917 9.33556 11.4048 10.4356L17.3704 16.3991L16.3991 17.3703L10.435 11.4048C9.33627 12.2917 7.94824 12.838 6.43072 12.838C2.89995 12.838 0.0234089 9.96146 0.0234089 6.43069C0.0234089 2.89992 2.89995 0.0233765 6.43072 0.0233765ZM6.43072 1.37228C3.62904 1.37228 1.37232 3.62901 1.37232 6.43069C1.37232 9.23237 3.62904 11.4891 6.43072 11.4891C9.2324 11.4891 11.4891 9.23237 11.4891 6.43069C11.4891 3.62901 9.2324 1.37228 6.43072 1.37228Z" />
+            </svg>
+        </div>
+
+        <div class="burger__btn">
+            <a href="./index.html">Главная</a>
+            <a href="./catalog.html">Каталог</a>
+            <a href="./sales.html">Акции</a>
+            <a href="./infocompany.html">О компании</a>
+            <a href="./delivery.html">Доставка и оплата</a>
+            <a href="./contacts.html">Контакты</a>
+            <a href="#">Личный кабинет</a>
+            <a data-burger="корзина" href="#">Корзина</a>
+            <a data-burger="избранное" href="#">Избранные товары</a>
+            <div class="burger__star__form">
+                <div class="burger__star__inner">
+                    <div class="burger__star__info">
+                        <span class="burger__star__info__title">Избранные товары</span>
+                        <span class="burger__star__info__sybtitle" data-basket="burger__star__off">Закрыть</span>
+                    </div>
+                    <div class="burger__star__cart__none displayon">
+                        Нет избранных товаров
+                    </div>
+                    <div class="burger__star__cart"></div>
+                </div>
+            </div>
+            <div class="burger__basket__form">
+                <div class="burger__basket__inner">
+                    <div class="burger__basket__info">
+                        <span class="burger__basket__info__title">Ваша корзина</span>
+                        <span class="burger__basket__info__sybtitle" data-basket="burger__basket__off">Закрыть</span>
+                    </div>
+                    <div class="burger__basket__cart__none displayon">
+                        Ваша корзина пуста
+                    </div>
+                    <div class="burger__basket-cart"></div>
+                    <div class="burger__basket-delivery">
+                        <span>Доставка:
+                            <span class="burger__basket-delivery--info">бесплатно</span></span>
+                        <span>Итого: <span class="burger__delivery__price">0</span><span> руб.</span></span>
+                    </div>
+                    <div class="burger__basket-form">
+                        <span>Оформить заказ:</span>
+                        <input type="number" placeholder="Ваш номер телефона" />
+                        <button>Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<section class="welcome">
+    @@include('welcome/welcome.html')
+</section>

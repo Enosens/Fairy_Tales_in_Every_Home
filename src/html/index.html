@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Сказка в каждый дом</title>
+	<link rel="stylesheet" href="./css/main.css" />
+	<link rel="icon" type="image/x-icon" href="./img/logo/logo3-round.png">
+</head>
+
+<body class="body">
+	<div class="conteiner">
+		@@include('blocks/nav.html')
+		@@include('blocks/header.html')
+		@@include('blocks/catalog.html')
+		<section class="popylar">
+			<span class="popylar__title">Популярные товары</span>
+		</section>
+		<div class="popylar__inner">
+			@@loop('./blocks/cart/cart__toys.html','./json/cart-toys.json')
+			@@loop('./blocks/cart/cart__sets.html','./json/cart-sets.json')
+		</div>
+		@@include('blocks/infoindex.html')
+		@@include('blocks/footer.html')
+	</div>
+
+	<script src="./js/index.bundle.js"></script>
+</body>
+
+</html>

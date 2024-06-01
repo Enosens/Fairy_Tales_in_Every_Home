@@ -1,0 +1,81 @@
+picture{
+    height: inherit !important;
+}
+
+
+.popylar__inner__element__block__buy{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.popylar__inner__element__block__buy svg{
+    cursor: pointer;
+}
+
+.popylar__inner__element__block__buy a{
+    width: fit-content;
+    height: 100%;
+    padding: 10px 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    color: #000;
+}
+
+.product__block__btn__wrapper__block{
+    display: flex;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+.product__block__btn__wrapper__block span{
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.product__block__btn__wrapper__element__button:hover{
+    background-color: #555555b7;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.product__block__btn__wrapper__element__content{
+    border-right-style: solid;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #000;
+}
+
+
+
+.popylar__inner__element__block__info{
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.active-svg{
+    fill: red;
+}
+
+.popylar__inner__element__block__info svg:hover{
+    display: inline-block;
+    fill: rgb(255, 0, 0);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.popylar__inner__element__block__info span{
+    font-size: 12px;
+}
+
+
+

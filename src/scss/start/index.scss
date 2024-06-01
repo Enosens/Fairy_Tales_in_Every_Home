@@ -1,0 +1,39 @@
+// @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+// @import url(https://fonts.googleapis.com/css?family=Arizonia:regular);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    font-style: normal;
+    color: #000;
+}
+
+a{
+    text-decoration: none;
+}
+
+.conteiner{
+    max-width: 1200px;
+    padding: 0px 15px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+ul{
+    list-style: none;
+}
+
+.displayon{
+    display: flex !important;
+}
+
+.displayoff{
+    display: none !important;
+}
+
+.w-700{
+    font-weight: 700;
+}

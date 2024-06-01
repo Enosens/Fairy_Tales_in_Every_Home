@@ -1,0 +1,5 @@
+node_modules
+.webp
+.DS_Store
+build
+htdocs

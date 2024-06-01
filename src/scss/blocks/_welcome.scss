@@ -1,0 +1,177 @@
+.welcome{
+    position: fixed;
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000a9;
+    z-index: 10;
+}
+
+.welcome__form,.register__form{
+    position: relative;
+    display: none;
+    flex-direction: column;
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.welcome__form svg,.offregister{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    fill: #000;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.welcome__form svg:hover,.offregister:hover{
+    fill: red;
+}
+
+.backregister{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    fill: #000;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.backregister:hover{
+    fill: red;
+}
+
+.welcome__text,.register__text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome__text label,.register__text label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register__btn{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #555;
+    color: #555;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+        background-color: #55555581;
+    }
+}
+
+
+.welcome__text p,.register__text p{
+    font-weight: 700;
+    color: #00000091;
+}
+
+.welcome__text span,.register__text span{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.welcome__text input,.register__text input{
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000091;
+    border-radius: 5px;
+    padding: 10px;
+    color: #00000091;
+}
+
+.welcome__text button,.register__text button{
+    width: fit-content;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000091;
+    color: #00000091;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 10px;
+}
+
+.welcome__text button:hover,.register__text button:hover{
+    background-color: #55555581;
+}
+
+
+.welcome__register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.welcome__register span{
+    position: relative;
+    color: #000;
+    &::after{
+        content: "";
+        width: 40%;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+    &::before{
+        content: "";
+        width: 40%;
+        height: 1px;
+        background-color: #000;
+        position: absolute;
+        left: 0;
+        top: 50%;
+    }
+
+}
+
+.welcome__register button{
+    width: 100%;
+    padding: 10px 30px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000091;
+    color: #00000091;
+    cursor: pointer;
+    transition: .3s;
+    &:hover{
+        background-color: #55555581;
+    }
+}
