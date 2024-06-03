@@ -262,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
             infobasketcart();
             fullprice();
             saveCartBasket()
+            mobilesaveCartBasket()
 
         };
 
@@ -333,30 +334,40 @@ document.addEventListener('DOMContentLoaded', () => {
             infostarcart();
             fullprice();
             saveCartStar()
+            mobilesaveCartStar()
 
         };
 
     });
     // работа Wrapper в избранном и в корзине
     window.addEventListener('click', function (event) {
+        let idbasket;
+        let idstar;
         let wrapperbasket;
         let numberbasket;
+        let burgerwrapperbasket;
         let wrapperstar;
         let numberstar;
+        let burgerwrapperstar;
 
         if (event.target.dataset.action === 'plus__basket' || event.target.dataset.action === 'minus__basket') {
+            idbasket = event.target.closest('.basket__element').getAttribute('data-id')
             wrapperbasket = event.target.closest('.basket__element__info__money').querySelector(".basket__element__info__money__click__number");
             numberbasket = event.target.closest('.basket__element__info').querySelector(".basket__element__info__number");
+            burgerwrapperbasket = document.querySelector(`.burger__basket-cart__element[data-id = "${idbasket}"]`).querySelector('[data-wrappercol="burger__wrappercol"]')
         };
 
         if (event.target.dataset.action === 'plus__star' || event.target.dataset.action === 'minus__star') {
+            idstar = event.target.closest('.star__element').getAttribute('data-id')
             wrapperstar = event.target.closest('.star__element__info__money').querySelector(".star__element__info__money__click__number");
             numberstar = event.target.closest('.star__element__info').querySelector(".star__element__info__number");
+            burgerwrapperstar = document.querySelector(`.burger__star-cart__element[data-id = "${idstar}"]`).querySelector('[data-wrappercol="burger__wrappercol"]')
         };
 
         if (event.target.dataset.action === 'plus__basket') {
             if (parseInt(numberbasket.innerText) > parseInt(wrapperbasket.innerText)) {
                 wrapperbasket.innerText = ++wrapperbasket.innerText;
+                burgerwrapperbasket.innerText = ++burgerwrapperbasket.innerText
             };
 
         };
@@ -364,12 +375,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.dataset.action === 'minus__basket') {
             if (parseInt(wrapperbasket.innerText) > 1) {
                 wrapperbasket.innerText = --wrapperbasket.innerText;
+                burgerwrapperbasket.innerText = --burgerwrapperbasket.innerText
             };
         };
 
         if (event.target.dataset.action === 'plus__star') {
             if (parseInt(numberstar.innerText) > parseInt(wrapperstar.innerText)) {
                 wrapperstar.innerText = ++wrapperstar.innerText;
+                burgerwrapperstar.innerText = ++burgerwrapperstar.innerText
             };
 
         };
@@ -377,25 +390,32 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.dataset.action === 'minus__star') {
             if (parseInt(wrapperstar.innerText) > 1) {
                 wrapperstar.innerText = --wrapperstar.innerText;
+                burgerwrapperstar.innerText = --burgerwrapperstar.innerText
             };
         };
 
         if (event.target.dataset.action === 'plus__basket' || event.target.dataset.action === 'minus__basket') {
-            const wrapperCol = event.target.closest('.basket__element__info__money__click').querySelector('[data-content="content__bastet"]')
-            const wrapperCartPricy = event.target.closest('.basket__element__info').querySelector('[data-basket = "pricyCart"]')
+            const wrapperCol = event.target.closest('.basket__element__info__money__click').querySelector('[data-content="content__bastet"]');
+            const wrapperCartPricy = event.target.closest('.basket__element__info').querySelector('[data-basket = "pricyCart"]');
             const cartPricy = event.target.closest('.basket__element__info__money').querySelector('.basket__element__info__money__block__text');
-            cartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText)
+            const burgercartPricy = document.querySelector(`.burger__basket-cart__element[data-id = "${idbasket}"]`).querySelector('[data-basket="pricy"]');
+            cartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText);
+            burgercartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText);
             fullprice();
             saveCartBasket()
+            mobilesaveCartBasket()
         };
 
         if (event.target.dataset.action === 'plus__star' || event.target.dataset.action === 'minus__star') {
             const wrapperCol = event.target.closest('.star__element__info__money__click').querySelector('[data-content="content__bastet"]')
             const wrapperCartPricy = event.target.closest('.star__element__info').querySelector('[data-star="pricyCart"]')
             const cartPricy = event.target.closest('.star__element__info__money').querySelector('.star__element__info__money__block__text');
-            cartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText)
+            const burgercartPricy = document.querySelector(`.burger__star-cart__element[data-id = "${idstar}"]`).querySelector('[data-pricycartfinished="star"]');
+            cartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText);
+            burgercartPricy.innerText = parseInt(wrapperCol.innerText) * parseInt(wrapperCartPricy.innerText);
             fullprice();
             saveCartStar()
+            mobilesaveCartStar()
         };
     });
     // удаление товаров из карзины и избранного
@@ -406,9 +426,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-basket]').classList.remove('active-svg');
             };
             event.target.closest('.basket__element').remove();
+            document.querySelector(`.burger__basket-cart__element[data-id = "${idcart}"]`).remove();
             infobasketcart();
             fullprice();
+            burger__col()
             saveCartBasket()
+            mobilesaveCartBasket()
         };
 
         if (event.target.dataset.off === 'offstar') {
@@ -417,13 +440,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-star]').classList.remove('active-svg');
             };
             event.target.closest('.star__element').remove();
+            document.querySelector(`.burger__star-cart__element[data-id = "${idcart}"]`).remove();
             infostarcart();
+            burger__col()
             saveCartStar()
+            mobilesaveCartStar()
         };
     });
     // перенос товара из избранного в корзину
     window.addEventListener('click', function (event) {
-        const basketcart = document.querySelector('.basket-cart')
+        const basketcart = document.querySelector('.basket-cart');
+        const burgerBasketCert = document.querySelector('.burger__basket-cart')
         if (event.target.dataset.basket === 'basket') {
             const idcart = event.target.closest('.star__element').getAttribute('data-id');
             const starid = event.target.closest('.star__element');
@@ -436,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 price: starid.querySelector('.star__element__info__money__block__text').innerText,
                 pricycart: starid.querySelector('[data-star="pricyCart"]').innerText
             };
-
+            console.log(starinfo);
             const itemcardbasket = basketcart.querySelector(`[data-id = "${starinfo.id}"]`);
 
             if (itemcardbasket) {
@@ -445,58 +472,91 @@ document.addEventListener('DOMContentLoaded', () => {
                 if ((parseInt(starinfo.col) + parseInt(basketcol.innerText)) <= parseInt(starinfo.maxcol)) {
                     basketprice.innerText = parseInt(starinfo.price) + parseInt(basketprice.innerText);
                     basketcol.innerText = parseInt(starinfo.col) + parseInt(basketcol.innerText);
+                    document.querySelector(`.burger__basket-cart__element[data-id = "${starinfo.id}"]`).querySelector('[data-basket="pricy"]').innerText = basketprice.innerText;
+                    document.querySelector(`.burger__basket-cart__element[data-id = "${starinfo.id}"]`).querySelector('[data-wrappercol="burger__wrappercol"]').innerText = basketcol.innerText;
                     if (document.querySelector('.popylar__inner') && document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`)) {
                         const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-star]').classList.remove('active-svg');
                         const fillon = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-basket]').classList.add('active-svg');
                     };
                     starid.remove();
-                    console.log(itemcardbasket);
-                    console.log(idcart);
-                }else{
-                    console.log('максимальное количество товара в корзине')
+                    document.querySelector(`.burger__star-cart__element[data-id = "${starinfo.id}"]`).remove();
                 };
             } else {
+                if (document.querySelector('.popylar__inner') && document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`)) {
+                    const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-star]').classList.remove('active-svg');
+                    const fillon = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-basket]').classList.add('active-svg');
+                };
                 const cardItemHTML = `<div class="basket__element" data-id="${starinfo.id}">
-            <svg data-off="offbasket" id="kabinet" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490"
-                style="enable-background: new 0 0 490 490" xml:space="preserve">
-                <polygon
-                points="11.387,490 245,255.832 478.613,490 489.439,479.174 255.809,244.996 489.439,10.811 478.613,0 245,234.161 11.387,0 0.561,10.811 234.191,244.996 0.561,479.174 ">
-                </polygon>
-            </svg>
-            <img class="basket__element__img" src="${starinfo.img}" alt="">
-            <div class="basket__element__info">
-                <span class="basket__element__info__text">${starinfo.title}</span>
-                <div class="basket__element__info__number__block">
-                    <span> Имеется в наличии:</span><span class="basket__element__info__number">${starinfo.maxcol}</span><span>шт.</span>
-                </div>
-                <div class="basket__element__info__number__block">
-                    <span>Цена за шт. / </span><span class="basket__element__info__number" data-basket = "pricyCart"> ${starinfo.pricycart} </span><span></span>
-                </div>
-                <div class="basket__element__info__money">
-                    <div class="basket__element__info__money__click">
-                        <span class="basket__element__info__money__click__element" data-action="minus__basket">-</span>
-                        <span class="basket__element__info__money__click__number" data-content="content__bastet">${starinfo.col}</span>
-                        <span class="basket__element__info__money__click__element"data-action="plus__basket">+</span>
-                    </div>
-                    <div class="basket__element__info__money__block">
-                        <div>
-                            <span>Итого:</span>
-                            <span class="basket__element__info__money__block__text">${parseInt(starinfo.price)}</span>
-                            <span>руб.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
+                                        <svg data-off="offbasket" id="kabinet" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490"
+                                            style="enable-background: new 0 0 490 490" xml:space="preserve">
+                                            <polygon
+                                            points="11.387,490 245,255.832 478.613,490 489.439,479.174 255.809,244.996 489.439,10.811 478.613,0 245,234.161 11.387,0 0.561,10.811 234.191,244.996 0.561,479.174 ">
+                                            </polygon>
+                                        </svg>
+                                        <img class="basket__element__img" src="${starinfo.img}" alt="">
+                                        <div class="basket__element__info">
+                                            <span class="basket__element__info__text">${starinfo.title}</span>
+                                            <div class="basket__element__info__number__block">
+                                                <span> Имеется в наличии:</span><span class="basket__element__info__number">${starinfo.maxcol}</span><span>шт.</span>
+                                            </div>
+                                            <div class="basket__element__info__number__block">
+                                                <span>Цена за шт. / </span><span class="basket__element__info__number" data-basket = "pricyCart"> ${starinfo.pricycart} </span><span></span>
+                                            </div>
+                                            <div class="basket__element__info__money">
+                                                <div class="basket__element__info__money__click">
+                                                    <span class="basket__element__info__money__click__element" data-action="minus__basket">-</span>
+                                                    <span class="basket__element__info__money__click__number" data-content="content__bastet">${starinfo.col}</span>
+                                                    <span class="basket__element__info__money__click__element"data-action="plus__basket">+</span>
+                                                </div>
+                                                <div class="basket__element__info__money__block">
+                                                    <div>
+                                                        <span>Итого:</span>
+                                                        <span class="basket__element__info__money__block__text">${parseInt(starinfo.price)}</span>
+                                                        <span>руб.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`;
                 basketcart.insertAdjacentHTML('beforeend', cardItemHTML);
+
+                const burgercartItemHtml = `<div class="burger__basket-cart__element" data-id = "${starinfo.id}">
+                                    <svg data-off = "basket" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490"
+                                        style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                                        <polygon data-off = "basket"
+                                            points="11.387,490 245,255.832 478.613,490 489.439,479.174 255.809,244.996 489.439,10.811 478.613,0 245,234.161 11.387,0 0.561,10.811 234.191,244.996 0.561,479.174 ">
+                                        </polygon>
+                                    </svg>
+                                    <img src="${starinfo.img}" alt="">
+                                    <div class="burger__basket-cart__info">
+                                        <span>${starinfo.title}</span>
+                                        <span>Цена за шт. / <span data-pricy="basket">${starinfo.pricycart}</span> руб.</span>
+                                        <div class="burder__col">
+                                            <div class="burger__wrapper">
+                                                <span class="burger__wrapper__btn" data-click = "basketminus">-</span>
+                                                <span data-wrappercol = "burger__wrappercol">${starinfo.col}</span>
+                                                <span class="burger__wrapper__btn" data-click = "basketplus">+</span>
+                                            </div>
+                                            <span>В наличии <span data-col>${starinfo.maxcol}</span> шт.</span>
+                                        </div>
+                                        <span>Общая цена: <span data-basket = "pricy">${parseInt(starinfo.price)}</span> руб.</span>
+                                    </div>
+                                </div>`
+
+                burgerBasketCert.insertAdjacentHTML('beforeend', burgercartItemHtml);
+                document.querySelector(`.burger__star-cart__element[data-id = "${starinfo.id}"]`).remove();
                 starid.remove();
             };
             infobasketcart();
             infostarcart();
             fullprice();
-            saveCartBasket();
-            saveCartStar();
+            burger__col() 
+            saveCartBasket()
+            mobilesaveCartBasket()
+            saveCartStar()
+            mobilesaveCartStar()
         };
     });
     // открытие и закрытие информации в доставка и оплата
@@ -673,7 +733,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             burger__col();
             calc()
-            mobilesaveCartBasket();
+            saveCartBasket()
+            mobilesaveCartBasket()
         };
 
 
@@ -716,7 +777,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 burger__star.insertAdjacentHTML('beforeend', burger__cart);
             };
             burger__col();
-            mobilesaveCartStar();
+            saveCartStar()
+            mobilesaveCartStar()
         };
 
     });
@@ -728,9 +790,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-basket]').classList.remove('active-svg');
             };
             event.target.closest('.burger__basket-cart__element').remove();
+            document.querySelector(`.basket__element[data-id = "${idcart}"]`).remove();
             burger__col();
-            calc()
-            mobilesaveCartBasket();
+            calc();
+            infobasketcart();
+            saveCartBasket()
+            mobilesaveCartBasket()
         };
 
         if (event.target.dataset.off === 'star') {
@@ -739,8 +804,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filloff = document.querySelector('.popylar__inner').querySelector(`[data-id = "${idcart}"]`).querySelector('[data-star]').classList.remove('active-svg');
             };
             event.target.closest('.burger__star-cart__element').remove();
+            document.querySelector(`.star__element[data-id = "${idcart}"]`).remove();
             burger__col();
-            mobilesaveCartStar();
+            infostarcart();
+            saveCartStar()
+            mobilesaveCartStar()
         };
     });
     //перенос товара из избранного в корзину
@@ -755,7 +823,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 maxcol: cart__element.querySelector('[data-col]').innerText,
                 pricy: cart__element.querySelector('[data-pricy = "star"]').innerText
             }
+            console.log(cart__info);
             let basket__cart = document.querySelector('.burger__basket-cart');
+            let burger__basket__cart = document.querySelector('.basket-cart');
             const basket__id = basket__cart.querySelector(`[data-id= "${cart__info.id}"]`);
             if (basket__id) {
                 let basket__pricy = basket__id.querySelector('[data-basket="pricy"]');
@@ -763,10 +833,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (parseInt(basket__col.innerText) + parseInt(cart__info.col) <= cart__info.maxcol) {
                     basket__col.innerText = parseInt(basket__col.innerText) + parseInt(cart__info.col);
                     basket__pricy.innerText = (parseInt(cart__info.col) * parseInt(cart__info.pricy)) + parseInt(basket__pricy.innerText);
+                    document.querySelector(`.basket__element[data-id = "${cart__info.id}"]`).querySelector('[data-content="content__bastet"]').innerText = basket__col.innerText;
+                    document.querySelector(`.basket__element[data-id = "${cart__info.id}"]`).querySelector('.basket__element__info__money__block__text').innerText = basket__pricy.innerText;
                     if (document.querySelector(`.popylar__inner__element[data-id = "${cart__info.id}"]`)){
                         const filloff = document.querySelector(`.popylar__inner__element[data-id = "${cart__info.id}"]`).querySelector('[data-star]').classList.remove('active-svg');
                     };
                     cart__element.remove();
+                    document.querySelector(`.star__element[data-id = "${cart__info.id}"]`).remove();
                 };
             } else {
                 if (document.querySelector(`.popylar__inner__element[data-id = "${cart__info.id}"]`)){
@@ -797,61 +870,121 @@ document.addEventListener('DOMContentLoaded', () => {
                                     </div>
                                 </div>`
 
+                const global__cart = `<div class="basket__element" data-id="${cart__info.id}">
+                                        <svg data-off="offbasket" id="kabinet" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 490 490"
+                                            style="enable-background: new 0 0 490 490" xml:space="preserve">
+                                            <polygon
+                                            points="11.387,490 245,255.832 478.613,490 489.439,479.174 255.809,244.996 489.439,10.811 478.613,0 245,234.161 11.387,0 0.561,10.811 234.191,244.996 0.561,479.174 ">
+                                            </polygon>
+                                        </svg>
+                                        <img class="basket__element__img" src="${cart__info.img}" alt="">
+                                        <div class="basket__element__info">
+                                            <span class="basket__element__info__text">${cart__info.title}</span>
+                                            <div class="basket__element__info__number__block">
+                                                <span> Имеется в наличии:</span><span class="basket__element__info__number">${cart__info.maxcol}</span><span>шт.</span>
+                                            </div>
+                                            <div class="basket__element__info__number__block">
+                                                <span>Цена за шт. / </span><span class="basket__element__info__number" data-basket = "pricyCart"> ${cart__info.pricy} </span><span></span>
+                                            </div>
+                                            <div class="basket__element__info__money">
+                                                <div class="basket__element__info__money__click">
+                                                    <span class="basket__element__info__money__click__element" data-action="minus__basket">-</span>
+                                                    <span class="basket__element__info__money__click__number" data-content="content__bastet">${cart__info.col}</span>
+                                                    <span class="basket__element__info__money__click__element"data-action="plus__basket">+</span>
+                                                </div>
+                                                <div class="basket__element__info__money__block">
+                                                    <div>
+                                                        <span>Итого:</span>
+                                                        <span class="basket__element__info__money__block__text">${parseInt(cart__info.pricy) * parseInt(cart__info.col)}</span>
+                                                        <span>руб.</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>`
+
                 basket__cart.insertAdjacentHTML('beforeend', burger__cart);
+                burger__basket__cart.insertAdjacentHTML('beforeend', global__cart);
                 cart__element.remove();
+                document.querySelector(`.star__element[data-id = "${cart__info.id}"]`).remove();
             };
             burger__col();
             calc()
-            mobilesaveCartStar();
-            mobilesaveCartBasket();
+            infobasketcart()
+            infostarcart()
+            saveCartBasket()
+            mobilesaveCartBasket()
+            saveCartStar()
+            mobilesaveCartStar()
         };
     });
     // работа wrapper в избранном
     window.addEventListener('click', function (click) {
         if (click.target.dataset.click === "starplus" || click.target.dataset.click === "starminus"){
+            const idcart = click.target.closest('.burger__star-cart__element').getAttribute('data-id');
             let element__wrapper = click.target.closest('.burger__wrapper').querySelector('[data-wrappercol="burger__wrappercol"]');
             const element__col = click.target.closest('.burder__col').querySelector('[data-col]');
             if (click.target.dataset.click === "starplus" && (parseInt(element__wrapper.innerText) < (parseInt(element__col.innerText)))){
                 element__wrapper.innerText = ++element__wrapper.innerText
+                document.querySelector(`.star__element[data-id = "${idcart}"]`).querySelector('[data-content="content__bastet"]').innerText = element__wrapper.innerText
             };
 
             if (click.target.dataset.click === "starminus" && (parseInt(element__wrapper.innerText) > 1)) {
                 element__wrapper.innerText = --element__wrapper.innerText
+                document.querySelector(`.star__element[data-id = "${idcart}"]`).querySelector('[data-content="content__bastet"]').innerText = element__wrapper.innerText
             };
+            saveCartStar()
+            mobilesaveCartStar()
         };
     });
     // работа wrapper в корзине
     window.addEventListener('click', function (click) {
         if (click.target.dataset.click === "basketplus" || click.target.dataset.click === "basketminus") {
+            const idcart = click.target.closest('.burger__basket-cart__element').getAttribute('data-id');
             let element__wrapper = click.target.closest('.burger__wrapper').querySelector('[data-wrappercol="burger__wrappercol"]');
             const element__col = click.target.closest('.burder__col').querySelector('[data-col]');
             if (click.target.dataset.click === "basketplus" && (parseInt(element__wrapper.innerText) < (parseInt(element__col.innerText)))) {
                 element__wrapper.innerText = ++element__wrapper.innerText
+                document.querySelector(`.basket__element[data-id = "${idcart}"]`).querySelector('[data-content="content__bastet"]').innerText = element__wrapper.innerText
             };
 
             if (click.target.dataset.click === "basketminus" && (parseInt(element__wrapper.innerText) > 1)) {
                 element__wrapper.innerText = --element__wrapper.innerText
+                document.querySelector(`.basket__element[data-id = "${idcart}"]`).querySelector('[data-content="content__bastet"]').innerText = element__wrapper.innerText
             };
+            saveCartBasket()
+            mobilesaveCartBasket()
         };
     });
     //полная стоимость карточки в избраном
     window.addEventListener('click',function(click){
         if (click.target.dataset.click === "starplus" || click.target.dataset.click === "starminus"){
+            const idcart = click.target.closest('.burger__star-cart__element').getAttribute('data-id')
             const oneCartPricy = click.target.closest('.burger__star-cart__info').querySelector('[data-pricy="star"]');
             const cartCol = click.target.closest('.burger__wrapper').querySelector('[data-wrappercol="burger__wrappercol"]')
             const FullCartPricy = click.target.closest('.burger__star-cart__info').querySelector('[data-pricycartfinished="star"]')
             FullCartPricy.innerText = parseInt(oneCartPricy.innerText) * parseInt(cartCol.innerText)
+            document.querySelector(`.star__element[data-id = "${idcart}"]`).querySelector('.star__element__info__money__block__text').innerText = FullCartPricy.innerText
         };
+        saveCartStar()
+        mobilesaveCartStar()
     });
     //полная стоимость карточки в корзине
     window.addEventListener('click', function (click) {
         if (click.target.dataset.click === "basketplus" || click.target.dataset.click === "basketminus") {
+            const idcart = click.target.closest('.burger__basket-cart__element').getAttribute('data-id')
             const oneCartPricy = click.target.closest('.burger__basket-cart__element').querySelector('[data-pricy="basket"]');
             const cartCol = click.target.closest('.burger__wrapper').querySelector('[data-wrappercol="burger__wrappercol"]')
             const FullCartPricy = click.target.closest('.burger__basket-cart__element').querySelector('[data-basket="pricy"]')
             FullCartPricy.innerText = parseInt(oneCartPricy.innerText) * parseInt(cartCol.innerText);
+            document.querySelector(`.basket__element[data-id = "${idcart}"]`).querySelector('.basket__element__info__money__block__text').innerText = FullCartPricy.innerText
         };
         calc()
+        fullprice()
+        saveCartBasket()
+        mobilesaveCartBasket()
+
     });
 
 
